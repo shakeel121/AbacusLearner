@@ -102,7 +102,12 @@ const LearnPage = () => {
               <Card 
                 key={level.id} 
                 className={`cursor-pointer transition-transform hover:scale-105 ${locked ? 'opacity-70' : ''}`}
-                onClick={() => !locked && setLocation(`/learn?level=${level.id}`)}
+                onClick={() => {
+                  if (!locked) {
+                    setSelectedLevelId(level.id);
+                    setLocation(`/learn?level=${level.id}`);
+                  }
+                }}
               >
                 <CardHeader className={`${level.difficulty === 'beginner' ? 'bg-green-500' : level.difficulty === 'intermediate' ? 'bg-yellow-500' : level.difficulty === 'advanced' ? 'bg-orange-500' : 'bg-red-500'} text-white`}>
                   <CardTitle>{level.name}</CardTitle>

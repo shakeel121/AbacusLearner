@@ -4,11 +4,15 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { BadgeIcon } from "@/components/ui/badge-icon";
 import { Progress } from "@/components/ui/progress";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Button } from "@/components/ui/button";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
 import { Level } from "@shared/schema";
+import Certificate from "@/components/Certificate";
+import { useState } from "react";
 
 const ProgressPage = () => {
   const { isAuthenticated, user } = useAuth();
+  const [showCertificate, setShowCertificate] = useState(false);
   
   // Redirect to login if not authenticated
   if (!isAuthenticated) {

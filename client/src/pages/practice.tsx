@@ -207,7 +207,13 @@ const PracticePage = () => {
           <TabsContent value="all">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {exercises.map(exercise => (
-                <div key={exercise.id} onClick={() => setLocation(`/practice?exercise=${exercise.id}`)}>
+                <div 
+                  key={exercise.id} 
+                  onClick={() => {
+                    setSelectedExerciseId(exercise.id);
+                    setLocation(`/practice?exercise=${exercise.id}`);
+                  }}
+                >
                   <ExerciseCard exercise={exercise} />
                 </div>
               ))}
@@ -227,7 +233,13 @@ const PracticePage = () => {
                     return false;
                   })
                   .map(exercise => (
-                    <div key={exercise.id} onClick={() => setLocation(`/practice?exercise=${exercise.id}`)}>
+                    <div 
+                      key={exercise.id} 
+                      onClick={() => {
+                        setSelectedExerciseId(exercise.id);
+                        setLocation(`/practice?exercise=${exercise.id}`);
+                      }}
+                    >
                       <ExerciseCard exercise={exercise} />
                     </div>
                   ))}
