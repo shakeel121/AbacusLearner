@@ -23,17 +23,17 @@ const Header = () => {
         
         {/* Navigation for larger screens */}
         <nav className="hidden md:flex space-x-6 items-center">
-          <Link href="/">
-            <a className={`hover:text-secondary transition-colors duration-200 ${location === '/' ? 'text-secondary' : ''}`}>Home</a>
+          <Link href="/" className={`hover:text-secondary transition-colors duration-200 ${location === '/' ? 'text-secondary' : ''}`}>
+            Home
           </Link>
-          <Link href="/learn">
-            <a className={`hover:text-secondary transition-colors duration-200 ${location === '/learn' ? 'text-secondary' : ''}`}>Learn</a>
+          <Link href="/learn" className={`hover:text-secondary transition-colors duration-200 ${location === '/learn' ? 'text-secondary' : ''}`}>
+            Learn
           </Link>
-          <Link href="/practice">
-            <a className={`hover:text-secondary transition-colors duration-200 ${location === '/practice' ? 'text-secondary' : ''}`}>Practice</a>
+          <Link href="/practice" className={`hover:text-secondary transition-colors duration-200 ${location === '/practice' ? 'text-secondary' : ''}`}>
+            Practice
           </Link>
-          <Link href="/progress">
-            <a className={`hover:text-secondary transition-colors duration-200 ${location === '/progress' ? 'text-secondary' : ''}`}>Progress</a>
+          <Link href="/progress" className={`hover:text-secondary transition-colors duration-200 ${location === '/progress' ? 'text-secondary' : ''}`}>
+            Progress
           </Link>
           
           {isLoading ? (
@@ -77,17 +77,33 @@ const Header = () => {
       {/* Mobile menu, hidden by default */}
       <div className={`md:hidden ${mobileMenuOpen ? 'block' : 'hidden'} bg-primary/95 w-full`}>
         <div className="container mx-auto px-4 py-3 flex flex-col space-y-3">
-          <Link href="/">
-            <a className="text-white hover:text-secondary py-2 transition-colors duration-200" onClick={() => setMobileMenuOpen(false)}>Home</a>
+          <Link 
+            href="/" 
+            className="text-white hover:text-secondary py-2 transition-colors duration-200" 
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Home
           </Link>
-          <Link href="/learn">
-            <a className="text-white hover:text-secondary py-2 transition-colors duration-200" onClick={() => setMobileMenuOpen(false)}>Learn</a>
+          <Link 
+            href="/learn" 
+            className="text-white hover:text-secondary py-2 transition-colors duration-200" 
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Learn
           </Link>
-          <Link href="/practice">
-            <a className="text-white hover:text-secondary py-2 transition-colors duration-200" onClick={() => setMobileMenuOpen(false)}>Practice</a>
+          <Link 
+            href="/practice" 
+            className="text-white hover:text-secondary py-2 transition-colors duration-200" 
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Practice
           </Link>
-          <Link href="/progress">
-            <a className="text-white hover:text-secondary py-2 transition-colors duration-200" onClick={() => setMobileMenuOpen(false)}>Progress</a>
+          <Link 
+            href="/progress" 
+            className="text-white hover:text-secondary py-2 transition-colors duration-200" 
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Progress
           </Link>
           
           {isAuthenticated ? (

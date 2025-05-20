@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import Bead from './Bead';
 
 interface RodProps {
@@ -10,17 +10,18 @@ const Rod = ({ index, onValueChange }: RodProps) => {
   // Heaven beads count as 5, earth beads count as 1
   const [heavenBeadActive, setHeavenBeadActive] = useState(false);
   const [earthBeadsActive, setEarthBeadsActive] = useState([false, false, false, false]);
+  const [value, setValue] = useState(0);
   
-  // Memoize the calculation function to prevent infinite loops
-  const calculateAndUpdateValue = useCallback(() => {
+  // Calculate value when beads change
+  useEffect(() => {
     const heavenValue = heavenBeadActive ? 5 : 0;
     const earthValue = earthBeadsActive.filter(Boolean).length;
-    onValueChange(heavenValue + earthValue);
-  }, [heavenBeadActive, earthBeadsActive, onValueChange]);
-  
-  useEffect(() => {
-    calculateAndUpdateValue();
-  }, [calculateAndUpdateValue]);
+    const newValue = heavenValue + earthValue;
+    setValue(newValue);
+    
+    // Only call the parent's onValueChange when our local value changes
+    onValueChange(newValue);
+  }, [heavenBeadActive, earthBeadsActive]);
   
   const toggleHeavenBead = () => {
     setHeavenBeadActive(!heavenBeadActive);
