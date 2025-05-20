@@ -136,7 +136,7 @@ export class DatabaseStorage implements IStorage {
           // Only update completion status if new status is completed
           isCompleted: progress.isCompleted || existingProgress.isCompleted,
           // Take the higher score
-          score: Math.max(progress.score || 0, existingProgress.score),
+          score: Math.max(progress.score || 0, existingProgress.score || 0),
           // Update completedAt if completing for the first time
           completedAt: progress.isCompleted && !existingProgress.isCompleted ? new Date() : existingProgress.completedAt,
         })

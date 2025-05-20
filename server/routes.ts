@@ -141,7 +141,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
           levelId: exercise.levelId,
           isCompleted: isLevelCompleted,
           score: Math.floor(completionPercentage),
-          timeSpent: (levelProgress?.timeSpent || 0) + validatedData.timeSpent
+          timeSpent: (levelProgress?.timeSpent || 0) + (validatedData.timeSpent || 0)
         });
       }
       
